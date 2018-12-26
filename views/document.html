@@ -1,9 +1,80 @@
-All collapsible
+<div class="card border-primary mb-3">
+	<div class="card-header border-primary btn-link" data-toggle="collapse" data-target="#cardScannerBody">Barcode Scanner</div>
+	<div class="collapse" id="cardScannerBody">	
+		<div class="card-body text-center">
+			<div class="rounded" style="background-color: grey; width: 100%; height: 240px"></div>
+			<div class="btn-group d-flex mt-1 w-100 justify-content-center">
+				<button type="button" class="btn btn-primary col-12 col-md-3">&orarr;</button>
+				<button type="button" class="btn btn-danger col-12 col-md-3">Capture &ofcir;</button>
+				<button type="button" class="btn btn-primary col-12 col-md-3">&olarr;</button></button>
+			</div>
+		</div>
+		<div class="card-footer"><small class="text-muted">Status: active</small></div>
+	</div>
+</div>
+<div class="card border-primary mb-3">
+	<div class="card-header border-primary btn-link" data-toggle="collapse" data-target="#cardDecodedBarcodes">Decoded Barcodes</div>
+	<div class="collapse show" id="cardDecodedBarcodes">	
+		<div class="card-body">
+			<small class="text-muted">Tap barcode in the list below for insertion</small>
+			<ul class="list-group">
+				<li class="list-group-item list-group-item-action">
+					<span style="color: blue">&ggg;</span>
+					IMTS1042
+				</li>
+				<li class="list-group-item list-group-item-action">
+					<span style="color: red">&ggg;</span>
+					PB238Q
+				</li>
+				<li class="list-group-item list-group-item-action">
+					<span style="color: orange">&ggg;</span>
+					H5LMTF102409
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
 
-Scanner card
+<div class="card border-primary mb-3">
+	<div class="card-header border-primary btn-link" data-toggle="collapse" data-target="#cardSelectedData">Selected data</div>
+	<div class="collapse show" id="cardSelectedData">	
+		<div class="card-body">
+			<small class="text-muted">Tap barcode in the list below for removal</small>
+			<ul class="list-group">
+				<li class="list-group-item list-group-item-action">IMTS1042</li>
+				<li class="list-group-item list-group-item-action">PB238Q</li>
+				<li class="list-group-item list-group-item-action">H5LMTF102409</li>
+			</ul>
+		</div>
+	</div>
+</div>
 
-Decoded Barcode card
-
-Selected Barcode card
-
-Document Content Card
+<div class="card border-primary mb-3">
+	<div class="card-header border-primary btn-link" data-toggle="collapse" data-target="#cardDocumentContent">Document content</div>
+	<div class="collapse show table-responsive" id="cardDocumentContent">	
+		<table class="table">
+			<thead>
+				<tr>
+					<th>IMTS #</th>
+					<th>-</th>
+					<th>-</th>
+					<th>-</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>IMTS1042</td>
+					<td>PB238Q</td>
+					<td>H5LMTF102409</td>
+					<td>Alice</td>
+				</tr>
+				<tr>
+					<td>IMTS2046</td>
+					<td>227ELPSH/27</td>
+					<td>AU5A1201009208</td>
+					<td>Bob</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
