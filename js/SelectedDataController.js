@@ -13,7 +13,7 @@ app.controller('SelectedDataController', function($scope, $location) {
 	};
 	
 	$scope.onInsert = function() {
-		$scope.$parent.$broadcast("DocumentInsert", $scope.selectedData.map(v => v.data));
+		$scope.$parent.$broadcast("DocumentInsertRow", $scope.selectedData.map(v => v.data));
 	}
 	
 	$scope.$on("BarcodeSelected", $scope.onBarcodeSelected);
