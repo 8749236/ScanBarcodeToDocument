@@ -10,9 +10,9 @@ app.config(function($routeProvider, $locationProvider) {
 				templateUrl : "views/documents.html",
 				controller : "DocumentListController",
 		})
-		.when("/scan/:document_id", {
-				templateUrl : "views/scanner.html",
-				controller : "DocumentListController",
+		.when("/documents/:document_id", {
+				templateUrl : "views/document.html",
+				controller : "DocumentController",
 		})
 		.when("/about", {
 				templateUrl : "views/about.html"
@@ -20,7 +20,7 @@ app.config(function($routeProvider, $locationProvider) {
 		
 		// Remove "#" from url
 		// Need base tag within head tag to work
-		$locationProvider.html5Mode(true);
+		$locationProvider.html5Mode(false);
 });
 
 app.run(function($rootScope, DocumentStoreService) {
