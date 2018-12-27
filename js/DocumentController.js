@@ -31,11 +31,13 @@ app.controller('DocumentController', function($scope, $routeParams, $location, D
 	var emptyDocument = {
 		id: null,
 		type: "table",
+		description: "",
 		data: null
 	};
 	var testData = {
 		id: "test",
 		type: "table",
+		description: "This is a test document",
 		data: [
 			["IMTS1042", "PB238Q", "H5LMTF102409", "Alice"],
 			["IMTS2046", "227ELPSH/27", "AU5A1201009208", "Bob"]
