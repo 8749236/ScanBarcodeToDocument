@@ -13,6 +13,11 @@ app.controller('DocumentListController', function($scope, $location, DocumentSto
 		DocumentStoreService.deleteDocument($scope.documents[idx].id);
 		$scope.documents.splice(idx, 1);
 	};
+	
+	$scope.onSearch = function() {
+		
+	};
+	
 	$scope.onDocumentCreated = function(e, data) {
 		// If new document is created, add it to the list
 		$scope.documents.push(data);
