@@ -10,8 +10,8 @@ app.controller('DocumentListController', function($scope, $location, DocumentSto
 	};
 	
 	$scope.onDelete = function(idx) {
-		console.log(idx);
-		//DocumentStoreService.deleteDocument(id);
+		DocumentStoreService.deleteDocument($scope.documents[idx].id);
+		$scope.documents.splice(idx, 1);
 	};
 	// Initialization
 	// Get a list of available documents
@@ -23,5 +23,5 @@ app.controller('DocumentListController', function($scope, $location, DocumentSto
 		{ id: "westWing", type: "table", description: "storing equipment serial # at west wing"},
 	];
 	console.log($scope.documents);
-	$scope.documents = testData;
+	//$scope.documents = testData;
 });

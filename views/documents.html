@@ -7,14 +7,14 @@
 	<div class="card card-primary outline-primary border-primary">
 		<div class="card-header">Document list</div>
 		<div class="card-body">
-			<div class="alert alert-info" role="alert">
-				There are no documents available,
-				<a class="alert-link" ng-click="" href="">tap me to create one</a>
-			</div>
 			<form class="d-flex my-2 justify-content-center">
 				<input class="form-control col-md-8 mr-2 col-lg-6" type="search" placeholder="Search" aria-label="Search">
 				<button class="btn btn-secondary" type="submit">Search</button>
 			</form>
+			<div class="alert alert-info" role="alert" ng-show="!documents.length">
+				There are no documents available,
+				<a class="alert-link" ng-click="" href="">tap me to create one</a>
+			</div>
 			<div class="card-deck">
 				<div class="card" ng-repeat="doc in documents track by $index">
 					<div class="card-body">
