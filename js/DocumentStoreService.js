@@ -12,7 +12,7 @@ app.service('DocumentStoreService', function($rootScope) {
 			// Filter by prefix
 			if(key.search(this._prefix) < 0) continue;
 			var tmp = JSON.parse(localStorage.getItem(key));
-			docList.push({ id: tmp.id, type: tmp.type });
+			docList.push({ id: tmp.id, type: tmp.type, description: tmp.description });
 		}
 		return docList;
 	};
@@ -25,7 +25,7 @@ app.service('DocumentStoreService', function($rootScope) {
 	this.setDocument = function(id, doc) {
 		// Local storage may throw exception
 		// For example, when its out of space
-		if(!id || id.length == 0) return false;
+		if(!id || id.length == 0 || this.getDocument(id)) return false;
 		try {
 			localStorage.setItem(this._prefix + id, JSON.stringify(doc));
 		} catch(e) {
