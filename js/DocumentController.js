@@ -48,22 +48,4 @@ app.controller('DocumentController', function($scope, $routeParams, $location, D
 	$scope.document = $scope.document ? $scope.document : testData;
 	
 	$scope.$on("DocumentInsertRow", $scope.onAddRow);
-	
-	var config = {
-		"default": {
-			inputStream: { name: "Test",
-				type: "ImageStream",
-				length: 10,
-				size: 800
-			},
-			locator: {
-				patchSize: "medium",
-				halfSample: true
-			}
-		}
-	};
-	/*
-	Quagga.init(config, function() {
-			console.log("Test");
-	});*/
 });
