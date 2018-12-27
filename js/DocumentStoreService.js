@@ -4,14 +4,17 @@ app.service('DocumentStoreService', function($rootScope) {
 	this._prefix = "barcorder_doc_";
 	
 	// Under construction
-	this.getDocumentIds = function() {
-		var keys = [];
+	this.getDocumentList = function() {
+		var docList = [];
 		// Get all keys in localStorage
 		for(var i = 0; i < localStorage.length; ++i) {
-			keys.push(localStorage.key(i));
+			var key = localStorage.key(i);
+			// Filter by prefix
+			if(key.search(this._prefix) < 0) continue;
+			var tmp = JSON.parse(localStorage.getItem(key));
+			docList.push({ id: tmp.id, type: tmp.type });
 		}
-		// Filter by prefix
-		return keys.filter(v => v.search(this._prefix) >= 0);
+		return docList;
 	};
 	
 	this.getDocument = function(id) {
