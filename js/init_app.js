@@ -24,5 +24,8 @@ app.config(function($routeProvider, $locationProvider) {
 });
 
 app.run(function($rootScope, DocumentStoreService) {
-	//DocumentStoreService
+	// Setup navbar for auto close when a link clicked
+	$(".collapse.navbar-collapse a").click(function() {
+		$(".collapse.navbar-collapse").collapse("hide");
+	});
 });
