@@ -16,5 +16,9 @@ app.controller('SelectedDataController', function($scope, $location) {
 		$scope.$parent.$broadcast("DocumentInsertRow", $scope.selectedData.map(v => v.data));
 	}
 	
+	$scope.onClear = function() {
+		$scope.selectedData = [];
+	}
+	
 	$scope.$on("BarcodeSelected", $scope.onBarcodeSelected);
 });

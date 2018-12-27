@@ -41,7 +41,7 @@
 	<div class="collapse show" id="cardSelectedData">	
 		<div class="card-body">
 			<small class="text-muted">Tap barcode in the list below for removal</small>
-			<ul class="list-group">
+			<ul class="list-group mb-3">
 				<li class="list-group-item list-group-item-action" ng-repeat="code in selectedData track by $index" ng-click="onRemove($index)">
 					<span ng-bind="code.data"></span>
 				</li>
@@ -50,6 +50,7 @@
 				</li>
 			</ul>
 			<button class="btn btn-primary" ng-click="onInsert()">Add to document</button>
+			<button class="btn btn-danger float-right" ng-click="onClear()">Clear</button>
 		</div>
 	</div>
 </div>
@@ -70,7 +71,7 @@
 						</tr>
 					</thead>
 					<tbody>
-						<tr ng-repeat="row in document track by $index">
+						<tr ng-repeat="row in document.data track by $index">
 							<td ng-repeat="col in row track by $index" ng-bind="col"></td>
 							<td><button class="btn btn-danger" ng-click="onRemoveRow($index)">Remove</button></td>
 						</tr>

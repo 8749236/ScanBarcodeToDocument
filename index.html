@@ -55,7 +55,7 @@
 											</tr>
 										</thead>
 										<tbody>
-											<tr ng-repeat="row in modal.documentDisplay.document track by $index">
+											<tr ng-repeat="row in modal.documentDisplay.document.data track by $index">
 												<td ng-repeat="col in row track by $index" ng-bind="col"></td>
 											</tr>
 										</tbody>
@@ -66,7 +66,7 @@
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-						<button type="button" class="btn btn-primary">Save changes</button>
+						<button type="button" class="btn btn-primary disabled">Export</button>
 					</div>
 				</div>
 			</div>
