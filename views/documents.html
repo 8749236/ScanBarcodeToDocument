@@ -16,7 +16,7 @@
 				<button class="btn btn-secondary" type="submit">Search</button>
 			</form>
 			<div class="card-deck">
-				<div class="card" ng-repeat="doc in documents">
+				<div class="card" ng-repeat="doc in documents track by $index">
 					<div class="card-body">
 						<p class="card-text">
 							<small class="h6">ID: <span ng-bind="doc.id">!dZ2EQ21Z</span></small>
@@ -28,7 +28,7 @@
 							<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalDocumentDisplay" ng-click="onView(this.doc)">View</button>
 							<a class="btn btn-primary" ng-href="#!/documents/{{doc.id}}">Edit</a>
 						</div>
-						<button type="button" class="btn btn-danger float-right">Delete</button>
+						<button type="button" class="btn btn-danger float-right" ng-click="onDelete($index)">Delete</button>
 					</div>
 				</div>
 			</div>
