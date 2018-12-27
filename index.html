@@ -21,6 +21,7 @@
 			<div class="collapse navbar-collapse" id="navbarTogglerDemo02">
 				<div class="navbar-nav mr-auto mt-2 mt-lg-0">
 					<a class="nav-item nav-link active" href="/#!/documents">Documents<span class="sr-only">(current)</span></a>
+					<a class="nav-item nav-link" href="" data-toggle="modal" data-target="#modalDocumentCreate">Create document</a>
 					<a class="nav-link nav-link" href="/#!/about">About</a>
 				</div>
 			</div>
@@ -35,7 +36,7 @@
 				<div class="modal-content">
 					<div class="modal-header">
 						<h5 class="modal-title" id="modalDocumentDisplayLabel">
-							Document Viewer <span ng-bind="modal.documentDisplay.document.id"></span>
+							Viewing document <span ng-bind="modal.documentDisplay.document.id"></span>
 						</h5>
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 							<span aria-hidden="true">&times;</span>
@@ -71,6 +72,35 @@
 				</div>
 			</div>
 		</div>
+		<div class="modal fade" id="modalDocumentCreate" tabindex="-1" role="dialog" aria-labelledby="modalDocumentDisplayLabel" aria-hidden="true">
+			<div class="modal-dialog modal-lg" role="document">
+				<div class="modal-content" ng-controller="DocumentCreateController">
+					<div class="modal-header">
+						<h5 class="modal-title" id="modalDocumentCreateLabel">Create document</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<form>
+							<div class="form-group">
+								<label for="documentId">Document ID</label>
+								<input id="documentId" class="form-control" type="text" placeholder="Think of an ID for your document" required ng-model="document.id">
+							</div>
+							<div class="form-group">
+								<label for="documentDescription">Description</label>
+								<input id="documentDescription" class="form-control" type="text" placeholder="Enter description of the document here" ng-model="document.description">
+							</div>
+							<input type="hidden" ng-model="document.type" required>
+						</form>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-primary" ng-click="onCreate()">Create</button>
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+					</div>
+				</div>
+			</div>
+		</div>
 
 		<script src="libs/jquery-3.3.1.min.js"></script>
 		<script src="libs/quagga_0.12.1/quagga.js"></script>
@@ -83,6 +113,7 @@
 		<script src="js/DocumentStoreService.js"></script>
 		<script src="js/ModalDataService.js"></script>
 		<script src="js/DecodedListController.js"></script>
+		<script src="js/DocumentCreateController.js"></script>
 		<script src="js/DocumentListController.js"></script>
 		<script src="js/DocumentController.js"></script>
 		<script src="js/HomePageController.js"></script>

@@ -6,24 +6,25 @@
 	</div>
 	<div class="card card-primary outline-primary border-primary">
 		<div class="card-header">Document list</div>
-		<div class="card-body">
+		<div class="card-body py-2">
 			<form class="d-flex my-2 justify-content-center">
 				<input class="form-control col-md-8 mr-2 col-lg-6" type="search" placeholder="Search" aria-label="Search">
 				<button class="btn btn-secondary" type="submit">Search</button>
 			</form>
+			<small class="text-muted">To create new document, tap "Create document" in the menu</small>
 			<div class="alert alert-info" role="alert" ng-show="!documents.length">
 				There are no documents available,
-				<a class="alert-link" ng-click="" href="">tap me to create one</a>
+				<a class="alert-link" href="" data-toggle="modal" data-target="#modalDocumentCreate">tap me to create one</a>
 			</div>
 			<div class="card-deck">
 				<div class="card" ng-repeat="doc in documents track by $index">
 					<div class="card-body">
 						<p class="card-text">
-							<small class="h6">ID: <span ng-bind="doc.id">!dZ2EQ21Z</span></small>
+							<small class="h6">ID: <span ng-bind="doc.id"></span></small>
 							<br>
-							<small class="">Type: <span ng-bind="doc.type">table</span></small>
+							<small class="">Type: <span ng-bind="doc.type"></span></small>
 						</p>
-						<p class="card-text" >This document store scanned barcodes from east wing</p>
+						<p class="card-text" ng-bind="doc.description"></p>
 						<div class="btn-group">
 							<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalDocumentDisplay" ng-click="onView(this.doc)">View</button>
 							<a class="btn btn-primary" ng-href="#!/documents/{{doc.id}}">Edit</a>
