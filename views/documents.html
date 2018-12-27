@@ -11,20 +11,24 @@
 				There are no documents available,
 				<a class="alert-link" ng-click="" href="">tap me to create one</a>
 			</div>
-			<div class="card-columns">
-				<div class="card">
+			<form class="d-flex my-2 justify-content-center">
+				<input class="form-control col-md-8 mr-2 col-lg-6" type="search" placeholder="Search" aria-label="Search">
+				<button class="btn btn-secondary" type="submit">Search</button>
+			</form>
+			<div class="card-deck">
+				<div class="card" ng-repeat="doc in documents">
 					<div class="card-body">
 						<p class="card-text">
-							<small class="">Type: <span >table</span></small>
+							<small class="h6">ID: <span ng-bind="doc.id">!dZ2EQ21Z</span></small>
 							<br>
-							<small class="text-muted">ID: <span >!dZ2EQ21Z</span></small>
+							<small class="">Type: <span ng-bind="doc.type">table</span></small>
 						</p>
 						<p class="card-text" >This document store scanned barcodes from east wing</p>
 						<div class="btn-group">
-							<button type="button" class="btn btn-primary">View</button>
-							<button type="button" class="btn btn-primary">Edit</button>
-							<button type="button" class="btn btn-danger">Delete</button>
+							<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalDocumentDisplay" ng-click="onView(this.doc)">View</button>
+							<a class="btn btn-primary" ng-href="#!/documents/{{doc.id}}">Edit</a>
 						</div>
+						<button type="button" class="btn btn-danger float-right">Delete</button>
 					</div>
 				</div>
 			</div>
