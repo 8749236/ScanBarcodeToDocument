@@ -1,6 +1,6 @@
 
 
-app.controller('DocumentCreateController', function($scope, $location, DocumentStoreService) {
+app.controller('DocumentCreateController', function($scope, $rootScope, $location, DocumentStoreService) {
 	// Under construction
 	$scope.document = {
 		id: "",
@@ -14,6 +14,7 @@ app.controller('DocumentCreateController', function($scope, $location, DocumentS
 		if(DocumentStoreService.setDocument($scope.document.id, $scope.document)) {
 			$("#modalDocumentCreate").modal("hide");
 			$("#modalDocumentCreate form").trigger("reset");
+			$rootScope.$broadcast("DocumentCreated", $scope.document)
 		} else {
 			alert("Failed to create document: invalid ID or ID already in use");
 		}

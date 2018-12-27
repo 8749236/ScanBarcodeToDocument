@@ -13,9 +13,15 @@ app.controller('DocumentListController', function($scope, $location, DocumentSto
 		DocumentStoreService.deleteDocument($scope.documents[idx].id);
 		$scope.documents.splice(idx, 1);
 	};
+	$scope.onDocumentCreated = function(e, data) {
+		// If new document is created, add it to the list
+		$scope.documents.push(data);
+	};
 	// Initialization
 	// Get a list of available documents
 	$scope.documents = DocumentStoreService.getDocumentList();
+	// Listens for document created event
+	$scope.$on("DocumentCreated", $scope.onDocumentCreated);
 	
 	var testData = [
 		{ id: "test", type: "table", description: "This is a test document"},

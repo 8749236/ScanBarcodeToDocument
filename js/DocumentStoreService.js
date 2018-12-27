@@ -18,7 +18,6 @@ app.service('DocumentStoreService', function($rootScope) {
 	};
 	
 	this.getDocument = function(id) {
-		console.log(localStorage.getItem(this._prefix + id));
 		return JSON.parse(localStorage.getItem(this._prefix + id));
 	};
 	
@@ -42,5 +41,4 @@ app.service('DocumentStoreService', function($rootScope) {
 		localStorage.removeItem(this._prefix + id)
 		return true;
 	}
-	console.log(1);
 });
