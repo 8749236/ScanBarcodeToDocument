@@ -33,14 +33,13 @@ app.controller('BarcodeScannerController', function($scope, $location) {
 		console.log(this);
 		$scope.capturedImage = window.URL.createObjectURL(this.files[0]);
 		$scope.$apply();
-		$scope.onAnalyze();
 	};
 	
 	$scope.onAnalyze = function() {
 		$("#detectedBarcode").html("Processing");
 		// Call quagga lib to analyze the image
 		quaggaConfig.src = $scope.capturedImage;
-		Quagga.decodeSingle(quaggaConfig, ffunction(result) {
+		Quagga.decodeSingle(quaggaConfig, function(result) {
 			if(result && result.codeResult) {
 				$("#detectedBarcode").html(result.codeResult.code);
 				$scope.$parent.$broadcast("BarcodeAnalyzed", result.codeResult.code);
