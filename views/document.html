@@ -20,7 +20,7 @@
 				<button type="button" class="btn btn-danger col-12 col-md-3" ng-hide="capturedImage || cameraDisabled" ng-click="onCapture()">Capture &ofcir;</button>
 				<button type="button" class="btn btn-success col-2 col-md-2" ng-hide="!capturedImage || cameraDisabled" ng-click="onAnalyze()">&check;</button>
 				<button type="button" class="btn btn-warning col-2 col-md-2" ng-hide="!capturedImage || cameraDisabled" ng-click="onClear()">&cross;</button>
-				<button type="button" class="btn btn-danger col-12 col-md-3" ng-show="cameraDisabled">
+				<button type="button" class="btn btn-danger col-12 col-md-3" ng-show="cameraDisabled" style="overflow: hidden;">
 					Upload &ofcir;
 					<input id="barcodeCaptureUpload" type="file" accept="image/*" capture="camera" style="position: absolute;left: 0;top: 0;opacity: 0; height: 100%">
 				</button>
