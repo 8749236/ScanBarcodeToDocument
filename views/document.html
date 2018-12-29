@@ -7,9 +7,6 @@
 				<img id="barcodeCapturedImage" class="h-100" alt="The screen capture will appear in this box." ng-src="{{capturedImage}}" ng-show="capturedImage">
 				<div id="detectedBarcode" class="w-100 position-absolute p-1" style="bottom: 0; background-color: rgba(255, 255, 255, 0.2)">Standing by</div>
 			</div>
-			<div class="output">
-			</div>
-			
 			<!--
 			<div id="result_strip">
 				<ul class="thumbnails"></ul>
@@ -25,7 +22,7 @@
 				<button type="button" class="btn btn-warning col-2 col-md-2" ng-hide="!capturedImage || cameraDisabled" ng-click="onClear()">&cross;</button>
 				<button type="button" class="btn btn-danger col-12 col-md-3" ng-show="cameraDisabled">
 					Upload &ofcir;
-					<input id="barcodeCaptureUpload" type="file" style="position: absolute;left: 0;top: 0;opacity: 0; height: 100%">
+					<input id="barcodeCaptureUpload" type="file" accept="image/*" capture="camera" style="position: absolute;left: 0;top: 0;opacity: 0; height: 100%">
 				</button>
 				<button type="button" class="btn btn-primary col-12 col-md-3" ng-click="rotateLeft()">&olarr;</button></button>
 			</div>
