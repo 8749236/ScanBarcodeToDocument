@@ -43,6 +43,8 @@ app.controller('BarcodeScannerController', function($scope, $location) {
 			if(result && result.codeResult) {
 				$("#detectedBarcode").html(result.codeResult.code);
 				$scope.$parent.$broadcast("BarcodeAnalyzed", result.codeResult.code);
+				// Since event is fired outside the digiest cycle
+				$scope.$apply();
 			} else {
 				$("#detectedBarcode").html("Unable to distinguish barcode");
 			}
@@ -53,7 +55,10 @@ app.controller('BarcodeScannerController', function($scope, $location) {
 	$scope.onClear = function() {
 		$scope.cameraStatus = "active";
 		$scope.capturedImage = null;
+		document.getElementById("barcodeCaptureUpload").value = null;
 	};
+	
+	
 	// Whenever user taps video tag, cycles the camera feed
 	$scope.onCycleCamera = function() {
 		$scope.cameraStatus = "initializing camera";

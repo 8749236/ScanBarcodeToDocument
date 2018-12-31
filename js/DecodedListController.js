@@ -9,8 +9,6 @@ app.controller('DecodedListController', function($scope, $location) {
 	$scope.onBarcodeAnalyzed = function(e, data) {
 		//$scope.decodedList = data;
 		$scope.onInsert(data);
-		// Since event might be fired outside the digiest cycle
-		$scope.$apply();
 	};
 	
 	$scope.onSelect = function(item) {
