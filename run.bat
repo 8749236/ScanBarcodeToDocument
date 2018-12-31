@@ -1,1 +1,1 @@
-browser-sync start --server --no-online --files="**/*" 
+browser-sync start --server --https --files="**/*" 

@@ -58,6 +58,34 @@ app.controller('BarcodeScannerController', function($scope, $location) {
 		document.getElementById("barcodeCaptureUpload").value = null;
 	};
 	
+	var rotateCanvasCtx = function(direction) {
+		var canvas = document.createElement("canvas");
+
+		var image = new Image();
+		image.src = $scope.capturedImage;
+		canvas.width = image.height;
+		canvas.height = image.width;
+		image.onload = function() {			
+			var ctx = canvas.getContext("2d");
+			ctx.translate(direction  * canvas.width/2  + canvas.width/2,
+									(-direction) * canvas.height/2 + canvas.height/2);
+			ctx.rotate(direction * 1/2 * Math.PI);
+			ctx.drawImage(image, 0, 0);
+			// DEBUG: Draw origin
+			//ctx.arc(0, 0, 50, 0, 2 * Math.PI, false);
+      //ctx.fillStyle = 'green';
+      //ctx.fill();
+			$scope.capturedImage = canvas.toDataURL();
+			$scope.$apply();
+		};
+	};
+	$scope.onRotateLeft = function() {
+		rotateCanvasCtx(-1);
+	};
+	$scope.onRotateRight = function() {
+		rotateCanvasCtx(1);
+	};
+	
 	
 	// Whenever user taps video tag, cycles the camera feed
 	$scope.onCycleCamera = function() {
