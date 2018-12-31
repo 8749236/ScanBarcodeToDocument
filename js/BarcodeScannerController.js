@@ -65,8 +65,14 @@ app.controller('BarcodeScannerController', function($scope, $location) {
 		image.src = $scope.capturedImage;
 		canvas.width = image.height;
 		canvas.height = image.width;
-		image.onload = function() {			
+		
+		image.onload = function() {
 			var ctx = canvas.getContext("2d");
+			// Since origin is at top left
+			// If rotate CW
+			// 		Translate X to right by original image height
+			// If rotate CCW
+			//		Translate Y to bottom by original image width
 			ctx.translate(direction  * canvas.width/2  + canvas.width/2,
 									(-direction) * canvas.height/2 + canvas.height/2);
 			ctx.rotate(direction * 1/2 * Math.PI);
