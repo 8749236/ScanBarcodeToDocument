@@ -16,7 +16,8 @@ app.controller('DecodedListController', function($scope, $location) {
 	};
 	
 	$scope.onInsert = function(item) {
-		$scope.decodedList.push(item);
+		//$scope.decodedList.push(item);
+		$scope.decodedList.unshift(item);
 	};
 	
 	$scope.onRemove = function(idx) {
