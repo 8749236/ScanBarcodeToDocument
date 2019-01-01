@@ -1,8 +1,9 @@
 <div class="row">
 	<div class="col-12">
-	<div class="alert alert-info" role="alert">
-		Last time you had worked on document with id <b ng-bind="lastDocumentId"></b>, 
-		<a class="alert-link" ng-click="" href="">tap me to continue your work</a>
+	<div class="alert alert-info" role="alert" ng-show="recentDocument">
+		Last time you had worked on document with id "<b ng-bind="recentDocument.doc_id"></b>" 
+		on <i ng-bind="recentDocument.date_accessed.toDateString()"></i>, 
+		<a class="alert-link" ng-href="#!/documents/{{recentDocument.doc_id}}">tap me to continue your work</a>
 	</div>
 	<div class="card card-primary outline-primary border-primary">
 		<div class="card-header">Document list</div>

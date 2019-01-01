@@ -85,6 +85,7 @@ app.controller('BarcodeScannerController', function($scope, $location) {
 			// This one feels a bit slower
 			//$scope.capturedImage = canvas.toDataURL("image/jpeg");
 			//$scope.$apply();
+			// toBlob() feels a bit faster than toDataURL()..
 			canvas.toBlob(function(blob) {
 				console.log(blob);
 				$scope.capturedImage = window.URL.createObjectURL(blob);

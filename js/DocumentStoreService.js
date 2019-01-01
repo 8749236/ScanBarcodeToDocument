@@ -2,6 +2,7 @@
 
 app.service('DocumentStoreService', function($rootScope) {
 	this._prefix = "barcorder_doc_";
+	this._keyRecentDocument = "barcorder_recent_doc";
 	
 	// Under construction
 	this.getDocumentList = function() {
@@ -40,5 +41,21 @@ app.service('DocumentStoreService', function($rootScope) {
 		if(!id || id.length == 0) return false;
 		localStorage.removeItem(this._prefix + id)
 		return true;
-	}
+	};
+	
+	this.getRecentDocument = function() {
+		var tmp = JSON.parse(localStorage.getItem(this._keyRecentDocument));
+		if(tmp) {
+			tmp.date_accessed = new Date(tmp.date_accessed);
+		}
+		return tmp;
+	};
+	
+	this.setRecentDocument = function(id) {
+		var tmp = {
+			doc_id: id,
+			date_accessed: new Date()
+		};
+		localStorage.setItem(this._keyRecentDocument, JSON.stringify(tmp));
+	};
 });

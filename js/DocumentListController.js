@@ -3,6 +3,7 @@
 app.controller('DocumentListController', function($scope, $location, DocumentStoreService, ModalDataService) {
 	// Under construction
 	$scope.documents = [];
+	$scope.recentDocument = null;
 	
 	$scope.onView = function(doc) {
 		console.log(doc);
@@ -25,6 +26,9 @@ app.controller('DocumentListController', function($scope, $location, DocumentSto
 	// Initialization
 	// Get a list of available documents
 	$scope.documents = DocumentStoreService.getDocumentList();
+	// Get recently accessed document
+	$scope.recentDocument = DocumentStoreService.getRecentDocument();
+	console.log("Receng: ", $scope.recentDocument);
 	// Listens for document created event
 	$scope.$on("DocumentCreated", $scope.onDocumentCreated);
 	

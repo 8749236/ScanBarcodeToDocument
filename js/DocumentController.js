@@ -44,6 +44,7 @@ app.controller('DocumentController', function($scope, $routeParams, $location, D
 		]
 	};
 	$scope.document = DocumentStoreService.getDocument($scope.documentId);
+	DocumentStoreService.setRecentDocument($scope.documentId);
 	// $scope.document = Object.assign(emptyDocument, {id: $scope.documentId});
 	$scope.document = $scope.document ? $scope.document : testData;
 	
