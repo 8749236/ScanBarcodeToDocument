@@ -23,14 +23,36 @@ app.controller('DocumentListController', function($scope, $location, DocumentSto
 		// If new document is created, add it to the list
 		$scope.documents.push(data);
 	};
+	
+	$scope.onDocumentExport = function(e, data) {
+		// Reduce each element via join(',')
+		// Then join joined element via join ('\r\n')
+		// join-ception!
+		var csv = data.data.reduce((acc, v) => (acc.push(v.join(",")), acc), []).join("\r\n");
+		var csvEncoded = "data:text/csv;charset=utf-8," + encodeURI(csv);
+		// Create fake anchor element
+		var a = document.createElement("a");
+		// Set download file name
+		a.setAttribute("download", "barcorder_doc_" + data.id + ".csv");
+		// Set download content
+		a.setAttribute("href", csvEncoded);
+		// Trigger click
+		a.click();
+		// ???
+		// Profit
+	};
+	
+	
 	// Initialization
 	// Get a list of available documents
 	$scope.documents = DocumentStoreService.getDocumentList();
 	// Get recently accessed document
 	$scope.recentDocument = DocumentStoreService.getRecentDocument();
-	console.log("Receng: ", $scope.recentDocument);
+
 	// Listens for document created event
 	$scope.$on("DocumentCreated", $scope.onDocumentCreated);
+	// Listens for document export event
+	$scope.$on("DocumentExport", $scope.onDocumentExport);
 	
 	var testData = [
 		{ id: "test", type: "table", description: "This is a test document"},
