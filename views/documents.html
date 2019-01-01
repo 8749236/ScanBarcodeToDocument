@@ -1,9 +1,12 @@
 <div class="row">
 	<div class="col-12">
-	<div class="alert alert-info" role="alert" ng-show="recentDocument">
+	<div class="alert alert-info alert-dismissible fade show" role="alert" ng-show="recentDocument">
 		Last time you had worked on document with id "<b ng-bind="recentDocument.doc_id"></b>" 
 		on <i ng-bind="recentDocument.date_accessed.toDateString()"></i>, 
 		<a class="alert-link" ng-href="#!/documents/{{recentDocument.doc_id}}">tap me to continue your work</a>
+		<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+		</button>
 	</div>
 	<div class="card card-primary outline-primary border-primary">
 		<div class="card-header">Document list</div>
