@@ -25,7 +25,7 @@ app.service('DocumentStoreService', function($rootScope) {
 	this.setDocument = function(id, doc) {
 		// Local storage may throw exception
 		// For example, when its out of space
-		if(!id || id.length == 0 || this.getDocument(id)) return false;
+		if(!id || id.length == 0) return false;
 		try {
 			localStorage.setItem(this._prefix + id, JSON.stringify(doc));
 		} catch(e) {
