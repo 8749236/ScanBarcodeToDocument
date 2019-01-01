@@ -4,7 +4,7 @@ const PORT = process.env.PORT || 3000;
 // Init
 var express = require("express");
 var app = express();
-app.use(express.static('.'));
+app.use(express.static('frontend'));
 // Starts listening	
 app.listen(PORT, function () {
 	console.log('App listening on port ' + PORT)
