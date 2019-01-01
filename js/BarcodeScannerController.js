@@ -81,8 +81,15 @@ app.controller('BarcodeScannerController', function($scope, $location) {
 			//ctx.arc(0, 0, 50, 0, 2 * Math.PI, false);
       //ctx.fillStyle = 'green';
       //ctx.fill();
-			$scope.capturedImage = canvas.toDataURL();
-			$scope.$apply();
+			
+			// This one feels a bit slower
+			//$scope.capturedImage = canvas.toDataURL("image/jpeg");
+			//$scope.$apply();
+			canvas.toBlob(function(blob) {
+				console.log(blob);
+				$scope.capturedImage = window.URL.createObjectURL(blob);
+				$scope.$apply();
+			}, "image/jpeg");
 		};
 	};
 	$scope.onRotateLeft = function() {
