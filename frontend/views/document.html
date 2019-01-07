@@ -1,12 +1,13 @@
 <div class="card border-primary mb-3" ng-controller="BarcodeScannerController">
 	<div class="card-header border-primary btn-link" data-toggle="collapse" data-target="#cardScannerBody">Barcode Scanner</div>
 	<div class="collapse show" id="cardScannerBody">	
-		<div class="card-body text-center">
-			<small class="text-muted">All cards in this page can be collapsed</small>
-			<div id="barcodeCaptureDisplay" class="rounded position-relative d-flex justify-content-center" style="background-color: grey; width: 100%; min-height: 256px; max-height: 320px">
-				<video id="barcodeCaptureVideo" class="mh-100" width="100%" height="auto" ng-hide="capturedImage || cameraDisabled" autoplay playsinline></video>
-				<img id="barcodeCapturedImage" class="w-100" style="object-fit: contain;" alt="The screen capture will appear in this box." ng-src="{{capturedImage}}" ng-show="capturedImage">
-				<div id="detectedBarcode" class="w-100 position-absolute p-1" style="bottom: 0; background-color: rgba(255, 255, 255, 0.2)">Standing by</div>
+		<div class="card-body">
+			<small class="text-muted">All cards in this page can be collapsed.</small>
+			<small class="text-muted">Touch gray area to upload from gallery instead of using camera</small>
+			<br/>
+			<div class="rounded position-relative d-flex justify-content-center mt-2" style="background-color: grey; width: 100%; min-height: 256px; max-height: 320px" ng-click="onUpload()">
+				<img id="capturePreview" class="w-100" style="object-fit: contain;" alt="Captured image will appear in this box." ng-src="{{capturedImage}}" ng-show="capturedImage">
+				<div id="barcodeDisplay" class="w-100 position-absolute p-1 text-center" style="bottom: 0; background-color: rgba(255, 255, 255, 0.2)" ng-bind="barcode"></div>
 			</div>
 			<div class="btn-group d-flex mt-1 w-100 justify-content-center">
 				<button type="button" class="btn btn-primary col-12 col-md-3" ng-click="onRotateRight()">&orarr;</button>
@@ -19,7 +20,7 @@
 				<button type="button" class="btn btn-primary col-12 col-md-3" ng-click="onRotateLeft()">&olarr;</button></button>
 			</div>
 		</div>
-		<div class="card-footer"><small class="text-muted">Status: <span ng-bind="cameraStatus">active</span></small></div>
+		<div class="card-footer"><small class="text-muted">Status: <span ng-bind="status">active</span></small></div>
 	</div>
 </div>
 <div class="card border-primary mb-3" ng-controller="DecodedListController">
