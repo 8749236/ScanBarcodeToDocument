@@ -27,7 +27,7 @@ app.controller('DecodedListController', function($scope, $location) {
 	$scope.$on("BarcodeAnalyzed", $scope.onBarcodeAnalyzed);
 	
 	
-	var testData = ["IMTS1042", "PB238Q", "H5LMTF102409"];
+	var testData = ["227E3LPHSU/27", "PB238Q", "220B4LPCB/27"];
 	$scope.$parent.$broadcast("BarcodeAnalyzed", testData[0]);
 	$scope.$parent.$broadcast("BarcodeAnalyzed", testData[1]);
 	$scope.$parent.$broadcast("BarcodeAnalyzed", testData[2]);
