@@ -21,6 +21,12 @@ app.controller('DocumentController', function($scope, $routeParams, $location, D
 		$scope.document.data.splice(idx, 1);
 	};
 	
+	// Extract one row by index and send it back to SelectedDataList
+	$scope.onExtractRow = function(idx) {
+		var extractedRow = $scope.document.data.splice(idx, 1)[0];
+		$scope.$broadcast("DocumentExtractRow", extractedRow);
+	};
+	
 	// Push new row of data
 	$scope.onAddRow = function(e, data) {
 		$scope.document.data.push(data);
